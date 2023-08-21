@@ -18,6 +18,18 @@ describe('movies tickets test', () => {
     cy.contains('Терминатор-заржавел').should('be.visible');
   })
 
+  it('should book movies tickets', () => {
+    cy.get(login.weekday).eq(3).click();
+    cy.get(login.posterMovie).parent(2).contains('15:00').click();
+
+    login.cinemaHall.forEach((i) => {
+      cy.get(`.buying-scheme__wrapper > :nth-child(${i.row}) > :nth-child(${i.seat})`).click();
+    });
+
+    cy.contains('Забронировать').click();
+    cy.contains('2/4, 2/5, 2/6').should('be.visible');
+  });
+
   context("negative test", () => {
 
     it('login negative email', () => {

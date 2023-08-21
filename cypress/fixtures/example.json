@@ -7,5 +7,21 @@
   "loginEmail": ".login__form > :nth-child(1)",
   "loginPass": ".login__form > :nth-child(2)",
   "typeEmail": "[type='email']",
-  "typePass": "[type='password']"
+  "typePass": "[type='password']",
+  "weekday": ".page-nav__day",
+  "posterMovie": ".movie",
+  "cinemaHall": [
+    {
+      "row": 2,
+      "seat": 4
+    },
+    {
+      "row": 2,
+      "seat": 5
+    },
+    {
+      "row": 2,
+      "seat": 6
+    }
+  ]
 }
