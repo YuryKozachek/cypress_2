@@ -4,12 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:valid:chrome": "cypress run --record --group valid --spec 'cypress/e2e/movies_test.cy.js' --browser chrome",
+    "test:invalid:chrome": "cypress run --record --group invalid --spec 'cypress/e2e/movies_test_negative.cy.js' --browser chrome",
+    "test:parallel:chrome": "run-p -c test:valid:chrome test:invalid:chrome",
+    "test:valid:edge": "cypress run --record --group valid --spec 'cypress/e2e/movies_test.cy.js' --browser edge",
+    "test:invalid:edge": "cypress run --record --group invalid --spec 'cypress/e2e/movies_test_negative.cy.js' --browser edge",
+    "test:parallel:edge": "run-p -c test:valid:edge test:invalid:edge",
+    "test:valid:electron": "cypress run --record --group valid --spec 'cypress/e2e/movies_test.cy.js' --browser electron",
+    "test:invalid:electron": "cypress run --record --group invalid --spec 'cypress/e2e/movies_test_negative.cy.js' --browser electron",
+    "test:parallel:electron": "run-p -c test:valid:electron test:invalid:electron"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.17.4"
+    "cypress": "^12.17.4",
+    "npm-run-all": "^4.1.5"
   }
 }
